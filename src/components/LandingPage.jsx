@@ -7,9 +7,9 @@ export const LandingPage = () => {
             {/* Navbar */}
             <nav className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-16">
+                    <div className="flex justify-between items-center h-14 sm:h-16">
                         <div className="flex-shrink-0">
-                            <span className="text-2xl font-bold text-blue-700">Arto+</span>
+                            <span className="text-xl sm:text-2xl font-bold text-blue-700">Arto+</span>
                         </div>
                         <div className="hidden md:flex space-x-8">
                             <a href="#features" className="text-gray-500 hover:text-gray-900">Features</a>
@@ -19,7 +19,7 @@ export const LandingPage = () => {
                         <div>
                             <Link
                                 to="/setup"
-                                className="px-6 py-2 bg-black text-white rounded-full font-medium hover:bg-gray-800 transition shadow-md"
+                                className="px-4 py-2 sm:px-6 bg-black text-white text-sm sm:text-base rounded-full font-medium hover:bg-gray-800 transition shadow-md"
                             >
                                 Get Started
                             </Link>
@@ -29,20 +29,20 @@ export const LandingPage = () => {
             </nav>
 
             {/* Hero Section */}
-            <header className="relative overflow-hidden pt-16 pb-32">
+            <header className="relative overflow-hidden pt-12 sm:pt-16 pb-20 sm:pb-32">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-                    <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-6">
+                    <h1 className="text-3xl sm:text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 mb-4 sm:mb-6">
                         Banking, <span className="text-blue-600">Reimagined.</span>
                     </h1>
-                    <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 mb-10">
+                    <p className="mt-4 max-w-2xl mx-auto text-base sm:text-xl text-gray-500 mb-8 sm:mb-10 px-2">
                         Experience the future of financial control with Arto+. <br className="hidden md:block" />
                         Customizable cards, instant setup, and zero hidden fees.
                     </p>
-                    <div className="flex justify-center gap-4">
-                        <Link to="/setup" className="px-8 py-4 bg-blue-600 text-white rounded-full font-bold text-lg hover:bg-blue-700 transition shadow-xl hover:-translate-y-1 transform duration-200">
+                    <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 px-4">
+                        <Link to="/setup" className="px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white rounded-full font-bold text-base sm:text-lg hover:bg-blue-700 transition shadow-xl hover:-translate-y-1 transform duration-200">
                             Create Your Card
                         </Link>
-                        <button className="px-8 py-4 bg-white text-gray-700 border border-gray-200 rounded-full font-bold text-lg hover:bg-gray-50 transition shadow-sm">
+                        <button className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-gray-700 border border-gray-200 rounded-full font-bold text-base sm:text-lg hover:bg-gray-50 transition shadow-sm">
                             Learn More
                         </button>
                     </div>
@@ -57,14 +57,14 @@ export const LandingPage = () => {
             </header>
 
             {/* Features Section */}
-            <section id="features" className="py-20 bg-gray-50">
+            <section id="features" className="py-12 sm:py-20 bg-gray-50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl font-bold text-gray-900">Why Choose Arto+?</h2>
+                    <div className="text-center mb-10 sm:mb-16">
+                        <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Why Choose Arto+?</h2>
                         <p className="mt-4 text-gray-500">Everything you need to manage your finances with style.</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-10">
                         {/* Feature 1 */}
                         <div className="bg-white p-8 rounded-2xl shadow-sm hover:shadow-md transition">
                             <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
@@ -100,11 +100,11 @@ export const LandingPage = () => {
             </section>
 
             {/* CTA Section */}
-            <section className="py-20">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-black rounded-3xl p-12 relative overflow-hidden">
+            <section className="py-12 sm:py-20">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-black rounded-2xl sm:rounded-3xl p-8 sm:p-12 relative overflow-hidden">
                     <div className="relative z-10">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Ready to upgrade your wallet?</h2>
-                        <p className="text-gray-400 mb-8 max-w-xl mx-auto">Join over 100,000 users who have switched to Arto+ for a better banking experience.</p>
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">Ready to upgrade your wallet?</h2>
+                        <p className="text-gray-400 text-sm sm:text-base mb-6 sm:mb-8 max-w-xl mx-auto">Join over 100,000 users who have switched to Arto+ for a better banking experience.</p>
                         <Link to="/setup" className="px-8 py-3 bg-white text-black rounded-full font-bold hover:bg-gray-100 transition">
                             Get Started Now
                         </Link>

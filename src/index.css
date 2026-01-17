@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* 3D Transform Utilities for Card Flip Effect */
 .perspective-1000 {
   perspective: 1000px;
 }
@@ -16,6 +17,7 @@
   transform: rotateY(180deg);
 }
 
+/* Global Styles */
 body {
   background-color: antiquewhite;
 }
@@ -24,189 +26,6 @@ label {
   font-weight: 500;
 }
 
-form {
-  margin-top: -10px;
-}
-
 button {
   cursor: pointer;
 }
-
-@media(max-width:600px) {
-  .card {
-    scale: 0.8;
-    margin-left: -90px;
-  }
-
-  body {
-    width: 100%;
-  }
-
-  form {
-    margin-right: 2%;
-  }
-
-  input {
-    width: 300px;
-  }
-
-  button {
-    width: 74%;
-    margin-bottom: 20%;
-  }
-}
-
-/* @media(max-width: 800px){
-  .card{
-    margin-left: 37px;
-  }
-}
-
-
-
-@media(max-width: 480px){
-  .form-btn{
-    position: absolute;
-    margin-top: 310px;
-    right: 36px;
-  }
-  .form-section{
-    width: 94%;
-  }
-  input{
-    width: 364px;
-  }
-  .form-section form{
-    margin-left: 20px;
-  }
-  .card{
-    margin-left: -55px;
-  }
-  .card-back{
-    margin-left: 90px;
-  }
-  .card-front{
-    margin-left: 57px;
-  }
-  body{
-    margin-right: -6%;
-  }
-}
-
-@media(min-width: 480px){
-  .card-back{
-    margin-right: 30px; 
-  }
-  
-}
-
-
-@media(max-width: 360px){
-  .card{
-    margin-left: -67px;
-  }
-  .card-front{
-    width: 340px;
-  }
-  .card-back{
-    margin-left: 95px;
-  }
-}
-
-@media(max-width: 360px){
-  .card{
-    margin-left: -67px;
-  }
-  
-  .card-front{
-    margin-left: 77px;
-  }
-  .card-back{
-    margin-left: 80px;
-  }
-  
-  input{
-    width: 100%;
-    
-  }
-  form{
-    width: 600%;
-  }
-  .form-btn{
-    width: 79%;
-  }
-  button{
-    width: 70%;
-    margin-bottom: 25px;
-  }
-} */
-
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-@media screen {}

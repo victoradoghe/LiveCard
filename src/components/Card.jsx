@@ -40,50 +40,51 @@ export const Card = ({ CardHolder, CardNumber, ExpDate, CVC, theme = 'default', 
   // Actually, 'isStatic' was used for absolute positioning.
   // We should unify positioning.
 
+  // Responsive container: Use min-width for carousel (absolute positioning), full width for static
   const containerClass = isStatic
-    ? "relative w-[336px] h-[212px] perspective-1000 cursor-pointer"
-    : "relative w-[336px] h-[212px] perspective-1000 cursor-pointer shadow-2xl";
+    ? "relative w-full max-w-[280px] sm:max-w-[336px] h-[177px] sm:h-[212px] perspective-1000 cursor-pointer mx-auto"
+    : "relative min-w-[280px] sm:min-w-[336px] h-[177px] sm:h-[212px] perspective-1000 cursor-pointer shadow-2xl";
 
-  // Position fixes if it was absolute before
-  const wrapperClass = isStatic ? "absolute mt-[-80px] ml-[70px]" : "";
+  // Remove absolute positioning for better mobile support
+  const wrapperClass = isStatic ? "mx-auto" : "";
 
   return (
     <div className={`${wrapperClass} ${containerClass}`} onClick={() => setIsFlipped(!isFlipped)}>
       <div className={`relative w-full h-full transition-all duration-700 transform-style-3d ${isFlipped ? 'rotate-y-180' : ''}`}>
 
         {/* Front Face */}
-        <div className={`absolute inset-0 w-full h-full backface-hidden ${getThemeStyles()} bg-cover bg-center rounded-[12px] border border-gray-400/30 overflow-hidden`}>
+        <div className={`absolute inset-0 w-full h-full backface-hidden ${getThemeStyles()} bg-cover bg-center rounded-[10px] sm:rounded-[12px] border border-gray-400/30 overflow-hidden`}>
 
-          <div className='absolute grid grid-cols-2 gap-56 ml-5 mt-3'>
+          <div className='absolute grid grid-cols-2 gap-32 sm:gap-56 ml-3 sm:ml-5 mt-2 sm:mt-3'>
             <MdiContactlessPaymentCircleOutline />
             <RiVisaLine />
           </div>
 
-          <div className="mt-[110px]">
-            <span className='text-white ml-5 text-xl tracking-[3px] font-mono shadow-sm'>{CardNumber || "0000 0000 0000 0000"}</span>
+          <div className="mt-[85px] sm:mt-[110px]">
+            <span className='text-white ml-3 sm:ml-5 text-base sm:text-xl tracking-[2px] sm:tracking-[3px] font-mono shadow-sm'>{CardNumber || "0000 0000 0000 0000"}</span>
           </div>
 
-          <div className='grid grid-cols-2 mt-4'>
-            <div className='ml-5 flex flex-col'>
-              <label className='text-white/80 text-[8px] uppercase tracking-wider'>Card holder name</label>
-              <span className='text-white text-sm font-medium tracking-wide'>{CardHolder || "Joseph Paul"}</span>
+          <div className='grid grid-cols-2 mt-3 sm:mt-4'>
+            <div className='ml-3 sm:ml-5 flex flex-col'>
+              <label className='text-white/80 text-[7px] sm:text-[8px] uppercase tracking-wider'>Card holder name</label>
+              <span className='text-white text-xs sm:text-sm font-medium tracking-wide'>{CardHolder || "Joseph Paul"}</span>
             </div>
 
-            <div className='flex flex-col ml-10'>
-              <label className='text-white/80 text-[8px] uppercase tracking-wider'>Expiry Date</label>
-              <span className='text-white text-sm font-medium tracking-wide'>{ExpDate || "00/00"}</span>
+            <div className='flex flex-col ml-6 sm:ml-10'>
+              <label className='text-white/80 text-[7px] sm:text-[8px] uppercase tracking-wider'>Expiry Date</label>
+              <span className='text-white text-xs sm:text-sm font-medium tracking-wide'>{ExpDate || "00/00"}</span>
             </div>
           </div>
 
-          <div className='absolute bottom-4 right-6'>
+          <div className='absolute bottom-3 sm:bottom-4 right-4 sm:right-6 scale-75 sm:scale-100'>
             <WpfSimCardChip />
           </div>
         </div>
 
         {/* Back Face */}
-        <div className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 ${getBackThemeStyles()} bg-cover bg-center rounded-[12px] border border-gray-400/30`}>
-          <div className='absolute top-[40%] right-[20%] text-right pr-4'>
-            <span className='text-gray-800 text-sm font-bold bg-white px-2 py-1 rounded'>{CVC || "000"}</span>
+        <div className={`absolute inset-0 w-full h-full backface-hidden rotate-y-180 ${getBackThemeStyles()} bg-cover bg-center rounded-[10px] sm:rounded-[12px] border border-gray-400/30`}>
+          <div className='absolute top-[40%] right-[20%] text-right pr-3 sm:pr-4'>
+            <span className='text-gray-800 text-xs sm:text-sm font-bold bg-white px-2 py-1 rounded'>{CVC || "000"}</span>
           </div>
         </div>
 

@@ -19,14 +19,14 @@ export const CardCarousel = ({ cardData, setTheme }) => {
     };
 
     return (
-        <div className="flex items-center justify-center w-full max-w-3xl mx-auto h-[300px] relative overflow-visible">
+        <div className="flex items-center justify-center w-full max-w-3xl mx-auto h-[220px] sm:h-[260px] md:h-[300px] relative overflow-visible px-4 sm:px-8">
 
-            {/* Navigation Buttons */}
-            <button onClick={handlePrev} className="absolute left-0 z-20 p-2 rounded-full bg-white shadow-md hover:bg-gray-50 text-gray-500 hover:text-gray-900 border border-gray-100">
+            {/* Navigation Buttons - FIXED: Swapped handlers to match animation direction */}
+            <button onClick={handleNext} className="absolute left-2 sm:left-4 md:left-0 z-20 p-2 rounded-full bg-white shadow-md hover:bg-gray-50 text-gray-500 hover:text-gray-900 border border-gray-100">
                 &lt;
             </button>
 
-            <button onClick={handleNext} className="absolute right-0 z-20 p-2 rounded-full bg-white shadow-md hover:bg-gray-50 text-gray-500 hover:text-gray-900 border border-gray-100">
+            <button onClick={handlePrev} className="absolute right-2 sm:right-4 md:right-0 z-20 p-2 rounded-full bg-white shadow-md hover:bg-gray-50 text-gray-500 hover:text-gray-900 border border-gray-100">
                 &gt;
             </button>
 
@@ -36,19 +36,19 @@ export const CardCarousel = ({ cardData, setTheme }) => {
                     let positionClass = "";
 
                     if (index === currentIndex) {
-                        positionClass = "z-10 scale-90 md:scale-100 opacity-100 shadow-2xl";
+                        positionClass = "z-10 scale-75 sm:scale-90 md:scale-100 opacity-100 shadow-2xl";
                     } else {
-                        // 3 items logic
-                        // If current is 1 (middle): 0 is left, 2 is right
-                        // If current is 0: 2 is left, 1 is right
-                        // If current is 2: 1 is left, 0 is right
+                        // 3 items logic - FIXED: Reversed the positioning logic
+                        // When clicking right (next), new card should slide in from RIGHT (negative translate puts it on RIGHT)
+                        // When clicking left (prev), new card should slide in from LEFT (positive translate puts it on LEFT)
                         const isLeft = index === (currentIndex - 1 + themes.length) % themes.length;
-                        // Mobile: smaller scale, smaller translation. Desktop: original scale/translation.
-                        // We use `md:` prefix for desktop styles.
-                        const baseTranslate = isLeft ? '-translate-x-[40px] origin-right' : 'translate-x-[40px] origin-left';
-                        const desktopTranslate = isLeft ? 'md:-translate-x-[180px] md:origin-right' : 'md:translate-x-[180px] md:origin-left';
+                        // REVERSED: isLeft cards now go RIGHT (positive), !isLeft cards go LEFT (negative)
+                        // This makes right button slide cards LEFT and left button slide cards RIGHT
+                        const baseTranslate = isLeft ? 'translate-x-[20px] origin-left' : '-translate-x-[20px] origin-right';
+                        const tabletTranslate = isLeft ? 'sm:translate-x-[80px] sm:origin-left' : 'sm:-translate-x-[80px] sm:origin-right';
+                        const desktopTranslate = isLeft ? 'md:translate-x-[180px] md:origin-left' : 'md:-translate-x-[180px] md:origin-right';
 
-                        positionClass = `z-0 scale-75 opacity-40 blur-[1px] ${baseTranslate} ${desktopTranslate} md:scale-90`;
+                        positionClass = `z-0 scale-[0.6] sm:scale-75 md:scale-90 opacity-40 blur-[1px] ${baseTranslate} ${tabletTranslate} ${desktopTranslate}`;
                     }
 
                     return (
