@@ -1,36 +1,56 @@
 @import "tailwindcss";
 
-body{
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+body {
   background-color: antiquewhite;
 }
 
-label{
+label {
   font-weight: 500;
 }
 
-form{
+form {
   margin-top: -10px;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
-@media(max-width:600px){
-  .card{
+@media(max-width:600px) {
+  .card {
     scale: 0.8;
     margin-left: -90px;
   }
-  body{
+
+  body {
     width: 100%;
   }
-  form{
+
+  form {
     margin-right: 2%;
   }
-  input{
+
+  input {
     width: 300px;
   }
-  button{
+
+  button {
     width: 74%;
     margin-bottom: 20%;
   }
@@ -189,6 +209,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
-@media screen {
-  
-}
+@media screen {}
